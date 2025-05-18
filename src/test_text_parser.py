@@ -5,7 +5,7 @@ from text_parser import *
 class TestTextToTextNodes(unittest.TestCase):
     def test_full_example(self):
         text = (
-                "This is **text** with an _italic_ word and a 'code block' and an "
+                "This is **text** with an _italic_ word and a `code block` and an "
                 "![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a "
                 "[link](https://boot.dev)"
                 )
@@ -32,7 +32,7 @@ class TestTextToTextNodes(unittest.TestCase):
         self.assertEqual(text_to_textnodes(text), expected)
 
     def test_mixed_inline_order(self):
-        text = "**bold** and 'code' and _italic_"
+        text = "**bold** and `code` and _italic_"
         expected = [
                 TextNode("bold", TextType.BOLD),
                 TextNode(" and ", TextType.TEXT),
